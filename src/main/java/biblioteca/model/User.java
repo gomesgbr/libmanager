@@ -1,12 +1,14 @@
 package biblioteca.model;
 
 import java.io.Serializable;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 
 @Entity
@@ -22,11 +24,13 @@ public class User implements Serializable{
     @Column
     private String cpf;
 
+    @OneToMany(mappedBy = "user")
+    Set<Emprestimo> emprestimo;
 
-    public User(int id, String nome, String cpf){
-        id = this.id;
-        nome = this.nome;
-        cpf = this.cpf;
+    public User(int id, String nome, String cpf) {
+        this.id = id;
+        this.nome = nome;
+        this.cpf = cpf;
     }
 
 

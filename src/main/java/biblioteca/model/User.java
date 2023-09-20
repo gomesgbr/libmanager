@@ -9,16 +9,19 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 
 @Entity
+@Table(name = "normal_user")
 public class User implements Serializable{
 
     private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    @Column(columnDefinition = "serial")
+    private Integer id;
     @Column
     private String nome;
     @Column
@@ -27,7 +30,7 @@ public class User implements Serializable{
     @OneToMany(mappedBy = "user")
     Set<Emprestimo> emprestimo;
 
-    public User(int id, String nome, String cpf) {
+    public User(Integer id, String nome, String cpf) {
         this.id = id;
         this.nome = nome;
         this.cpf = cpf;

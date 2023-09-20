@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import javax.persistence.Column;
 
 @Entity
 public class Emprestimo implements Serializable{
@@ -25,14 +26,15 @@ public class Emprestimo implements Serializable{
     @ManyToOne
     @JoinColumn(name = "livro_id")
     private Livro livro;
+
+    @Column
     private Date dataEmprestimo;
+    @Column
     private Date dataDevolucao;
 
 
-
-
-
-    public Emprestimo(User user, Livro livro, Date dataEmprestimo, Date dataDevolucao) {
+    public Emprestimo(int id, User user, Livro livro, Date dataEmprestimo, Date dataDevolucao) {
+        this.id = id;
         this.user = user;
         this.livro = livro;
         this.dataEmprestimo = dataEmprestimo;

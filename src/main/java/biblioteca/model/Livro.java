@@ -17,6 +17,7 @@ public class Livro implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(columnDefinition = "serial")
     private int id;
     @Column
     private String titulo;

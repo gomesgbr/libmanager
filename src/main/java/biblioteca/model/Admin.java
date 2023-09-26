@@ -18,7 +18,7 @@ public class Admin implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(columnDefinition = "serial")
-    private int id;
+    private Integer id;
     @Column
     private String nome;
     @Column
@@ -28,7 +28,7 @@ public class Admin implements Serializable {
 
     }
 
-    public Admin(int id, String nome, String senha) {
+    public Admin(Integer id, String nome, String senha) {
         this.id = id;
         this.nome = nome;
         this.senha = senha;

@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import biblioteca.dao.UserDAO;
+import biblioteca.dao.GenericDAO;
 import biblioteca.model.User;
 
 
@@ -22,7 +22,7 @@ public class AddUserServlet extends HttpServlet{
         String nome = request.getParameter("nome");
         String cpf = request.getParameter("cpf");
 
-        UserDAO userDAO = new UserDAO();
+        GenericDAO<User> userDAO = new GenericDAO<User>(User.class);
         User user = new User(null, nome, cpf);
 
         userDAO.create(user);
